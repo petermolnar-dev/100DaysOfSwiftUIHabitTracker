@@ -8,15 +8,24 @@
 import Foundation
 
 class ActivityStore: ObservableObject {
-    @Published var activities: [Activity] = []
     
-    func add(_ activity: Activity) {
-        activities.append(activity)
+    static let activityStorageKey = "Activities"
+    
+    init() {
+        if let savedActivities = Foundation.UserDefaults.standard.data(forKey: ActivityStore.activityStorageKey) {
+            if let decodedActivities = try? JSONDecoder().decode([Activity].self, from: savedActivities) {
+                activities = decodedActivities
+                return
+            }
+        }
+        activities = []
     }
     
-    func increase(_ activity: Activity, with adding: Int) {
-        
-        // Check if there is an activity
-        // If yes, increase the counter.
+    @Published var activities = [Activity]() {
+        didSet {
+            if let encoded = try? JSONEncoder().encode(activities) {
+                Foundation.UserDefaults.standard.set(encoded, forKey: ActivityStore.activityStorageKey)
+            }
+        }
     }
 }
