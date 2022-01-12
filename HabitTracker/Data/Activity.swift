@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Activity: Identifiable, Codable {
+struct Activity: Identifiable, Codable, Equatable {
     let id: UUID
     let name: String
     var count: Int
