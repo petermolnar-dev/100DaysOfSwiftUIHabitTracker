@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var activityStore = ActivityStore()
+    @State private var showingNewActivitySheet = false
     
     var body: some View {
         NavigationView {
@@ -27,11 +28,14 @@ struct ContentView: View {
             .navigationTitle("Activities")
             .toolbar {
                 Button {
-                    addNewActivity()
+                   showingNewActivitySheet = true
                 } label: {
                     Image(systemName: "plus")
                 }
             }
+        }
+        .sheet(isPresented: $showingNewActivitySheet) {
+            AddActivityView(activityStore: activityStore)
         }
     }
     

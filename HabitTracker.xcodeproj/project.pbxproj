@@ -13,6 +13,7 @@
 		C73A7C2A27876F6600DF5882 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73A7C2927876F6600DF5882 /* Preview Assets.xcassets */; };
 		C770E595278C992000B879E8 /* ActivityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C770E594278C992000B879E8 /* ActivityStore.swift */; };
 		C770E597278C995B00B879E8 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C770E596278C995B00B879E8 /* Activity.swift */; };
+		C7741D77278EF82200C23B9D /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7741D76278EF82200C23B9D /* AddActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		C73A7C2927876F6600DF5882 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C770E594278C992000B879E8 /* ActivityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStore.swift; sourceTree = "<group>"; };
 		C770E596278C995B00B879E8 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		C7741D76278EF82200C23B9D /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +57,9 @@
 		C73A7C2127876F6400DF5882 /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				C7741D75278EF80900C23B9D /* Views */,
 				C770E593278C991400B879E8 /* Data */,
 				C73A7C2227876F6400DF5882 /* HabitTrackerApp.swift */,
-				C73A7C2427876F6400DF5882 /* ContentView.swift */,
 				C73A7C2627876F6600DF5882 /* Assets.xcassets */,
 				C73A7C2827876F6600DF5882 /* Preview Content */,
 			);
@@ -79,6 +81,15 @@
 				C770E596278C995B00B879E8 /* Activity.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		C7741D75278EF80900C23B9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C73A7C2427876F6400DF5882 /* ContentView.swift */,
+				C7741D76278EF82200C23B9D /* AddActivityView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 				C73A7C2527876F6400DF5882 /* ContentView.swift in Sources */,
 				C770E597278C995B00B879E8 /* Activity.swift in Sources */,
 				C73A7C2327876F6400DF5882 /* HabitTrackerApp.swift in Sources */,
+				C7741D77278EF82200C23B9D /* AddActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
