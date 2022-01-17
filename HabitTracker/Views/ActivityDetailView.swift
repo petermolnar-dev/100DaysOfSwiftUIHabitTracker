@@ -25,10 +25,12 @@ struct ActivityDetailView: View {
     }
     
     func updateActivity() {
+
+        let newCount = activity.count + stepperValue
         let newActivity = Activity(id: activity.id,
                                    name: activity.name,
-                                   count: activity.count + stepperValue)
-        let index = activityStore.activities.firstIndex(of: activity)
+                                   count: newCount)
+        let index = activityStore.activities.firstIndex(where: { $0.id == activity.id } )
         if let index = index {
             activityStore.activities[index] = newActivity
         }
