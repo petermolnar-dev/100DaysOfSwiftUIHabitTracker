@@ -13,12 +13,26 @@ struct ActivityDetailView: View {
     @State var activity: Activity
     @State var stepperValue = 0
     
+    func onIncrement() {
+        stepperValue += 1
+    }
+    
+    func onDecrement() {
+        stepperValue -= 1
+        if stepperValue < 0 { stepperValue = 0 }
+    }
+    
     var body: some View {
         Form {
+            Text("\(activity.name)")
+                .font(.headline)
             HStack{
-                Text("Activity name: \(activity.name)")
-                    .font(.headline)
-                Stepper("Time spent:", value: $stepperValue, in: 0...100)
+                Stepper("Time spent: \(stepperValue)") {
+                    onIncrement()
+                } onDecrement: {
+                    onDecrement()
+                }
+
             }
         }
     }

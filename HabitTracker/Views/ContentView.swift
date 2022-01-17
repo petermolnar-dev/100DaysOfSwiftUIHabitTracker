@@ -16,19 +16,24 @@ struct ContentView: View {
         NavigationView {
             List{
                 ForEach(activityStore.activities) { activity in
-                    HStack {
-                        Text(activity.name)
-                            .font(.headline)
-                        Spacer()
-                        Text(activity.count, format:  .number)
-                            .fontWeight(.light)
+                    NavigationLink {
+                        ActivityDetailView(activityStore: activityStore, activity: activity)
+                    } label: {
+                        HStack {
+                            Text(activity.name)
+                                .font(.headline)
+                            Spacer()
+                            Text(activity.count, format:  .number)
+                                .fontWeight(.light)
+                        }
                     }
                 }
+                
             }
             .navigationTitle("Activities")
             .toolbar {
                 Button {
-                   showingNewActivitySheet = true
+                    showingNewActivitySheet = true
                 } label: {
                     Image(systemName: "plus")
                 }
