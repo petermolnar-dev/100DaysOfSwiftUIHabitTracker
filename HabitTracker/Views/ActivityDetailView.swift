@@ -15,11 +15,23 @@ struct ActivityDetailView: View {
     
     func onIncrement() {
         stepperValue += 1
+        updateActivity()
     }
     
     func onDecrement() {
         stepperValue -= 1
         if stepperValue < 0 { stepperValue = 0 }
+        updateActivity()
+    }
+    
+    func updateActivity() {
+        let newActivity = Activity(id: activity.id,
+                                   name: activity.name,
+                                   count: activity.count + stepperValue)
+        let index = activityStore.activities.firstIndex(of: activity)
+        if let index = index {
+            activityStore.activities[index] = newActivity
+        }
     }
     
     var body: some View {
